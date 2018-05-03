@@ -1,0 +1,19 @@
+<div class="message-container">
+<h1>Team 4 Chat Bot</h1>
+
+
+
+<ng-container *ngFor="let message of messages | async">
+
+  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                    'to':   message.sentBy === 'user' }">
+    {{ message.content }}
+  </div>
+
+</ng-container>
+
+<br>
+<input class="message-form" [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" placeholder="Talk to me">
+
+<button style="float:right" class="message-button" (click)="sendMessage()">Send</button> 
+</div>
